@@ -1,21 +1,28 @@
 import React from 'react';
-import Login from './modules/login';
-// import Navbar from './components/Navbar';
-import Home from "./modules/home";
-import {BrowserRouter as Routes, Router, Route} from "react-router-dom";
+import Login from './pages/login';
+import Home from "./pages/home";
+import Services from './pages/Services';
+import AboutUS from './pages/AboutUS';
+import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from './components/Navbar';
 // import Switch from "react-switch";
 
 const App = () => {
   return (
     <div>
       <Router>
-      <Routes>
-       
-          <Route path="/" exact component={Login}/>
-      </Routes> 
+        <Navbar /> 
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/Services" element={<Services />} />
+          <Route path="/Blog" element={<Blog />} />
+          <Route path="/AboutUS" element={<AboutUS />} />
+          <Route path="/Contact" element={<Contact />} />
+        </Routes>
       </Router>
-      <Home />
-      <Login />
     </div>
   );
 };
